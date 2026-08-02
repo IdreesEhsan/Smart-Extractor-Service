@@ -1,0 +1,4 @@
+Extract the lead information from this email and return it as JSON.
+
+Email:
+{text}
