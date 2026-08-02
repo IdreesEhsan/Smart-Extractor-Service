@@ -1,12 +1,52 @@
 [
   {
     "id": 1,
-    "text": "Hi, this is Idrees from Northwind Retail. We're evaluating inventory tools for our 40-store chain and would love a demo next week. Budget is roughly $20k/year. Reach me at idrees@northwind.com.",
-    "expected": {"full_name": "Idrees", "company": "Northwind Retail", "email": "idrees@northwind.com", "phone": null, "interest_level": "high", "budget_mentioned": "$20k/year", "product_interest": "inventory tools", "next_step": "schedule demo", "urgency": "medium"}
+    "text": "Hi, this is Priya from Northwind Retail. We're evaluating inventory tools for our 40-store chain and would love a demo next week. Budget is roughly $20k/year. Reach me at priya@northwind.com.",
+    "expected": {"full_name": "Priya", "company": "Northwind Retail", "email": "priya@northwind.com", "phone": null, "interest_level": "high", "budget_mentioned": "$20k/year", "product_interest": "inventory tools", "next_step": "schedule demo", "urgency": "medium"}
   },
   {
     "id": 2,
     "text": "hey saw your product on twitter, looks cool. what does it do exactly? -sam",
     "expected": {"full_name": "Sam", "company": null, "email": null, "phone": null, "interest_level": "low", "budget_mentioned": null, "product_interest": null, "next_step": null, "urgency": "unknown"}
+  },
+  {
+    "id": 3,
+    "text": "Subject: URGENT - need pricing today\nThis is James Okoye, VP Ops at Fenwick Logistics. We need to lock in a fleet tracking solution by end of week, board meeting Friday. Call me at 555-201-3344 or james.okoye@fenwicklog.com ASAP. Budget approved up to $80k.",
+    "expected": {"full_name": "James Okoye", "company": "Fenwick Logistics", "email": "james.okoye@fenwicklog.com", "phone": "555-201-3344", "interest_level": "high", "budget_mentioned": "up to $80k", "product_interest": "fleet tracking solution", "next_step": "call back", "urgency": "high"}
+  },
+  {
+    "id": 4,
+    "text": "Hello, I'm Maria Chen, procurement lead at BlueWave Health. We're comparing three vendors for patient scheduling software. No rush on our end, decision likely next quarter. Could you send a spec sheet? maria.chen@bluewavehealth.org",
+    "expected": {"full_name": "Maria Chen", "company": "BlueWave Health", "email": "maria.chen@bluewavehealth.org", "phone": null, "interest_level": "medium", "budget_mentioned": null, "product_interest": "patient scheduling software", "next_step": "send spec sheet", "urgency": "low"}
+  },
+  {
+    "id": 5,
+    "text": "Forwarded message below, might be relevant to your team. (no additional context)",
+    "expected": {"full_name": null, "company": null, "email": null, "phone": null, "interest_level": "unknown", "budget_mentioned": null, "product_interest": null, "next_step": null, "urgency": "unknown"}
+  },
+  {
+    "id": 6,
+    "text": "Hi team, Dave Whitfield here from Whitfield & Sons Construction. Interested in your project management tool for about 15 field crews. Somewhere in the 5-10k/year range works for us. Can we hop on a call Thursday afternoon? dave@whitfieldsons.com, 212-555-0199",
+    "expected": {"full_name": "Dave Whitfield", "company": "Whitfield & Sons Construction", "email": "dave@whitfieldsons.com", "phone": "212-555-0199", "interest_level": "high", "budget_mentioned": "5-10k/year", "product_interest": "project management tool", "next_step": "schedule call Thursday", "urgency": "medium"}
+  },
+  {
+    "id": 7,
+    "text": "Just wondering if you guys do any student discounts? Not affiliated with a company, just curious for a personal project.",
+    "expected": {"full_name": null, "company": null, "email": null, "phone": null, "interest_level": "low", "budget_mentioned": null, "product_interest": null, "next_step": null, "urgency": "unknown"}
+  },
+  {
+    "id": 8,
+    "text": "This is Aisha Bello, Head of Ops at Lumen Analytics. We need a decision by end of month since our current contract expires then. Sending over our requirements doc separately. Please have someone reach out to schedule onboarding. aisha.bello@lumenanalytics.io",
+    "expected": {"full_name": "Aisha Bello", "company": "Lumen Analytics", "email": "aisha.bello@lumenanalytics.io", "phone": null, "interest_level": "high", "budget_mentioned": null, "product_interest": null, "next_step": "schedule onboarding", "urgency": "high"}
+  },
+  {
+    "id": 9,
+    "text": "Following up on the trade show conversation - this is Tom from Ridgeline Outfitters. We chatted about your POS integration. No specific timeline yet, still gathering options for the team. tom.ridgeline@gmail.com",
+    "expected": {"full_name": "Tom", "company": "Ridgeline Outfitters", "email": "tom.ridgeline@gmail.com", "phone": null, "interest_level": "medium", "budget_mentioned": null, "product_interest": "POS integration", "next_step": null, "urgency": "unknown"}
+  },
+  {
+    "id": 10,
+    "text": "Hi, Elena Petrova here, CTO at Vertex Robotics. We need API access ASAP to start integration testing this week — this is blocking a client deliverable. Budget isn't a constraint, just need it fast. elena@vertexrobotics.ai / +1 415 555 0143",
+    "expected": {"full_name": "Elena Petrova", "company": "Vertex Robotics", "email": "elena@vertexrobotics.ai", "phone": "+1 415 555 0143", "interest_level": "high", "budget_mentioned": null, "product_interest": "API access", "next_step": null, "urgency": "high"}
   }
 ]
