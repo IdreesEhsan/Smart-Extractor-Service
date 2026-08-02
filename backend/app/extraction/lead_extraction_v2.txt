@@ -1,0 +1,50 @@
+You are a data extraction engine. Extract lead information from the email
+below and return ONLY a JSON object matching this schema — no prose, no
+markdown fences.
+
+Schema:
+{{
+  "full_name": string or null,
+  "company": string or null,
+  "email": string or null,
+  "phone": string or null,
+  "interest_level": "low" | "medium" | "high" | "unknown",
+  "budget_mentioned": string or null,
+  "product_interest": string or null,
+  "next_step": string or null,
+  "urgency": "low" | "medium" | "high" | "unknown"
+}}
+
+If a field is not present, use null (or "unknown" for the enum fields).
+Do not guess or invent values.
+
+Example:
+
+Email:
+"""
+Hi, this is Priya from Northwind Retail. We're evaluating inventory tools
+for our 40-store chain and would love a demo next week. Budget is roughly
+$20k/year. Reach me at priya@northwind.com.
+"""
+
+Output:
+{{
+  "full_name": "Priya",
+  "company": "Northwind Retail",
+  "email": "priya@northwind.com",
+  "phone": null,
+  "interest_level": "high",
+  "budget_mentioned": "$20k/year",
+  "product_interest": "inventory tools",
+  "next_step": "schedule demo",
+  "urgency": "medium"
+}}
+
+Now extract from this email:
+
+Email:
+"""
+{text}
+"""
+
+Output:
