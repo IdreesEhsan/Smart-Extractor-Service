@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "text": "Hi, this is Idrees from Northwind Retail. We're evaluating inventory tools for our 40-store chain and would love a demo next week. Budget is roughly $20k/year. Reach me at idrees@northwind.com.",
+    "expected": {"full_name": "Idrees", "company": "Northwind Retail", "email": "idrees@northwind.com", "phone": null, "interest_level": "high", "budget_mentioned": "$20k/year", "product_interest": "inventory tools", "next_step": "schedule demo", "urgency": "medium"}
+  },
+  {
+    "id": 2,
+    "text": "hey saw your product on twitter, looks cool. what does it do exactly? -sam",
+    "expected": {"full_name": "Sam", "company": null, "email": null, "phone": null, "interest_level": "low", "budget_mentioned": null, "product_interest": null, "next_step": null, "urgency": "unknown"}
+  }
+]
