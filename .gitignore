@@ -1,0 +1,8 @@
+.env    
+# --- backend/.gitignore content, place at repo root ---
+venv/
+__pycache__/
+*.pyc
+.env
+logs/
+test_set/results.json
