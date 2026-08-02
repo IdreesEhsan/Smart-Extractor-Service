@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Smart Extractor & Chat</title>
+<!-- React loaded from CDN — no npm/build step needed -->
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect } = React;
+const API_BASE = "http://localhost:8000"; // change to your deployed URL later
+
+function ChatTab() {
+  const [role, setRole] = useState("general_assistant");
+  const [input, setInput] = useState("");
+  const [messages, setMessages] = useState([]);
+
+  async function send() {
+    if (!input.trim()) return;
+    const history = [...messages, { role: "user", content: input }];
+    setMessages([...history, { role: "assistant", content: "" }]);
+    setInput("");
+
+    const resp = await fetch(`${API_BASE}/chat`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: history, role, temperature: 0.7 }),
+    });
+
+    // Read the streamed response chunk by chunk
+    const reader = resp.body.getReader();
+    const decoder = new TextDecoder();
+    let acc = "";
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      acc += decoder.decode(value, { stream: true });
+      setMessages(prev => {
+        const copy = [...prev];
+        copy[copy.length - 1] = { role: "assistant", content: acc };
+        return copy;
+      });
+    }
+  }
+
+  return (
+    <div>
+      <select value={role} onChange={e => setRole(e.target.value)}>
+        <option value="general_assistant">general_assistant</option>
+        <option value="sales_coach">sales_coach</option>
+        <option value="customer_support">customer_support</option>
+      </select>
+      <div>
+        {messages.map((m, i) => <p key={i}><b>{m.role}:</b> {m.content}</p>)}
+      </div>
+      <input value={input} onChange={e => setInput(e.target.value)}
+             onKeyDown={e => e.key === "Enter" && send()} />
+      <button onClick={send}>Send</button>
+    </div>
+  );
+}
+
+function ExtractTab() {
+  const [text, setText] = useState("");
+  const [result, setResult] = useState(null);
+
+  async function runExtract() {
+    const resp = await fetch(`${API_BASE}/extract`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text }),
+    });
+    setResult(await resp.json());
+  }
+
+  return (
+    <div>
+      <textarea value={text} onChange={e => setText(e.target.value)}
+                placeholder="Paste a lead email..." rows={6} style={{width: "100%"}} />
+      <button onClick={runExtract}>Extract</button>
+      {result && <pre>{JSON.stringify(result, null, 2)}</pre>}
+    </div>
+  );
+}
+
+function App() {
+  const [tab, setTab] = useState("chat");
+  return (
+    <div style={{ maxWidth: 700, margin: "40px auto", fontFamily: "monospace" }}>
+      <h2>Smart Extractor & Chat Service</h2>
+      <button onClick={() => setTab("chat")}>Chat</button>
+      <button onClick={() => setTab("extract")}>Extractor</button>
+      {tab === "chat" ? <ChatTab /> : <ExtractTab />}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
