@@ -1,0 +1,15 @@
+# Change these two lines to switch prompt versions without touching code.
+active_version: v3
+file: lead_extraction_v3.txt
+
+# Appended to the conversation when the model's output fails validation.
+# {error} = Pydantic's error message, {previous_output} = what it returned.
+retry_feedback_template: |
+  Your previous output was not valid JSON matching the schema, or failed
+  validation. Fix it and return ONLY the corrected JSON object.
+
+  Validation error:
+  {error}
+
+  Your previous output was:
+  {previous_output}
