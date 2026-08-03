@@ -1,6 +1,6 @@
 # Change these two lines to switch prompt versions without touching code.
-active_version: v3
-file: lead_extraction_v3.txt
+active_version: v1
+file: lead_extraction_v1.txt
 
 # Appended to the conversation when the model's output fails validation.
 # {error} = Pydantic's error message, {previous_output} = what it returned.
