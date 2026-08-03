@@ -45,4 +45,9 @@ DEFAULT_PRICING = {"input": 0.50, "output": 1.50}  # fallback for unlisted model
 
 
 def get_pricing(model: str) -> dict:
+    # Any model ending in ":free" costs $0 on OpenRouter, regardless of
+    # what it would cost as a paid model — check this first so free-tier
+    # fallback models never get billed at the DEFAULT_PRICING rate.
+    if model.endswith(":free"):
+        return {"input": 0.0, "output": 0.0}
     return MODEL_PRICING_PER_1M.get(model, DEFAULT_PRICING)
