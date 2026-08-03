@@ -1,0 +1,168 @@
+{
+  "field_accuracy": {
+    "full_name": 1.0,
+    "company": 1.0,
+    "email": 1.0,
+    "phone": 1.0,
+    "budget_mentioned": 1.0,
+    "product_interest": 1.0,
+    "next_step": 0.7,
+    "interest_level": 1.0,
+    "urgency": 0.8
+  },
+  "overall_accuracy_pct": 94.44444444444444,
+  "total_cost_usd": 0.000298,
+  "total_retries": 0,
+  "per_item": [
+    {
+      "id": 1,
+      "latency_ms": 8391.3,
+      "fields": {
+        "full_name": true,
+        "company": true,
+        "email": true,
+        "phone": true,
+        "budget_mentioned": true,
+        "product_interest": true,
+        "next_step": true,
+        "interest_level": true,
+        "urgency": true
+      }
+    },
+    {
+      "id": 2,
+      "latency_ms": 17057.7,
+      "fields": {
+        "full_name": true,
+        "company": true,
+        "email": true,
+        "phone": true,
+        "budget_mentioned": true,
+        "product_interest": true,
+        "next_step": true,
+        "interest_level": true,
+        "urgency": true
+      }
+    },
+    {
+      "id": 3,
+      "latency_ms": 10358.8,
+      "fields": {
+        "full_name": true,
+        "company": true,
+        "email": true,
+        "phone": true,
+        "budget_mentioned": true,
+        "product_interest": true,
+        "next_step": false,
+        "interest_level": true,
+        "urgency": true
+      }
+    },
+    {
+      "id": 4,
+      "latency_ms": 18039.3,
+      "fields": {
+        "full_name": true,
+        "company": true,
+        "email": true,
+        "phone": true,
+        "budget_mentioned": true,
+        "product_interest": true,
+        "next_step": true,
+        "interest_level": true,
+        "urgency": true
+      }
+    },
+    {
+      "id": 5,
+      "latency_ms": 11475.9,
+      "fields": {
+        "full_name": true,
+        "company": true,
+        "email": true,
+        "phone": true,
+        "budget_mentioned": true,
+        "product_interest": true,
+        "next_step": true,
+        "interest_level": true,
+        "urgency": true
+      }
+    },
+    {
+      "id": 6,
+      "latency_ms": 8780.2,
+      "fields": {
+        "full_name": true,
+        "company": true,
+        "email": true,
+        "phone": true,
+        "budget_mentioned": true,
+        "product_interest": true,
+        "next_step": true,
+        "interest_level": true,
+        "urgency": false
+      }
+    },
+    {
+      "id": 7,
+      "latency_ms": 14442.2,
+      "fields": {
+        "full_name": true,
+        "company": true,
+        "email": true,
+        "phone": true,
+        "budget_mentioned": true,
+        "product_interest": true,
+        "next_step": true,
+        "interest_level": true,
+        "urgency": true
+      }
+    },
+    {
+      "id": 8,
+      "latency_ms": 13388.4,
+      "fields": {
+        "full_name": true,
+        "company": true,
+        "email": true,
+        "phone": true,
+        "budget_mentioned": true,
+        "product_interest": true,
+        "next_step": true,
+        "interest_level": true,
+        "urgency": true
+      }
+    },
+    {
+      "id": 9,
+      "latency_ms": 18718.9,
+      "fields": {
+        "full_name": true,
+        "company": true,
+        "email": true,
+        "phone": true,
+        "budget_mentioned": true,
+        "product_interest": true,
+        "next_step": false,
+        "interest_level": true,
+        "urgency": false
+      }
+    },
+    {
+      "id": 10,
+      "latency_ms": 13989.2,
+      "fields": {
+        "full_name": true,
+        "company": true,
+        "email": true,
+        "phone": true,
+        "budget_mentioned": true,
+        "product_interest": true,
+        "next_step": false,
+        "interest_level": true,
+        "urgency": true
+      }
+    }
+  ]
+}
