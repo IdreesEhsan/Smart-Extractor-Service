@@ -21,6 +21,16 @@ class Settings(BaseSettings):
 
 settings = Settings()  # a single shared instance, imported everywhere else
 
+# Ordered fallback list of free models to try if the primary one is
+# rate-limited (429). Tried in order — first one that responds wins.
+FREE_MODEL_FALLBACKS = [
+    "openai/gpt-oss-20b:free",
+    "nvidia/nemotron-3-nano-30b-a3b:free",
+    "nvidia/nemotron-3-super-120b-a12b:free",
+    "google/gemma-4-31b-it:free",
+    "cohere/north-mini-code:free",
+]
+
 # USD per 1,000,000 tokens. Check openrouter.ai/models for current numbers —
 # these change over time and this is just an approximation for logging.
 MODEL_PRICING_PER_1M = {
