@@ -13,8 +13,8 @@ class Settings(BaseSettings):
     openrouter_base_url: str = "https://openrouter.ai/api/v1"
 
     # Default models used unless a request overrides them
-    chat_model: str = "openai/gpt-4o-mini"
-    extract_model: str = "openai/gpt-4o-mini"
+    chat_model: str = "openai/gpt-oss-20b:free"
+    extract_model: str = "openai/gpt-oss-20b:free"
 
     max_extract_retries: int = 2   # how many times /extract retries on bad JSON
     log_file: str = "logs/requests.jsonl"
