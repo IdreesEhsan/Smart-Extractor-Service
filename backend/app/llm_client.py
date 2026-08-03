@@ -77,3 +77,31 @@ async def chat_completion_stream(
                 text = delta.get("content")
                 if text:
                     yield text
+
+
+async def chat_completion_with_fallback(
+    messages: list[dict],
+    temperature: float = 0.7,
+    models: list[str] | None = None,
+) -> dict:
+    """
+    Tries each model in `models` (defaults to FREE_MODEL_FALLBACKS) in
+    order. On a 429 (rate limited), moves to the next model. Raises the
+    last error if every model in the list is exhausted.
+    """
+    models = models or FREE_MODEL_FALLBACKS
+    last_error = None
+
+    for model in models:
+        try:
+            return await chat_completion(messages, model, temperature)
+        except httpx.HTTPStatusError as e:
+            if e.response.status_code == 429:
+                print(f"[fallback] {model} rate-limited, trying next model...")
+                last_error = e
+                continue
+            raise  # non-429 errors (401, 500, etc.) should surface immediately
+
+    raise RuntimeError(
+        f"All fallback models rate-limited. Last error: {last_error}"
+    )
