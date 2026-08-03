@@ -65,8 +65,9 @@ def main():
                 row["fields"][f] = ok
 
             results.append(row)
-            print(f"id={item['id']:>2}  retries={body['retries_used']}  "
+            print(f"id={item['id']:>2}  retries={body['retries_used']}"
                   f"cost=${body['cost_usd']:.5f}  latency={latency:.0f}ms")
+            time.sleep(3)
 
     n = len(items)
     print("\n--- Field accuracy ---")
