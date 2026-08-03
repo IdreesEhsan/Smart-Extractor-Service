@@ -46,6 +46,7 @@ async def chat(req: ChatRequest):
         with Timer() as t:
              async for chunk in chat_completion_stream(messages, settings.chat_model, req.temperature):
                 full_text += chunk
+                print(f"CHUNK: {repr(chunk)}", flush=True)
                 yield chunk
         # Streaming doesn't always return exact token usage, so we estimate
         # (roughly 4 chars/token) for logging purposes only.
