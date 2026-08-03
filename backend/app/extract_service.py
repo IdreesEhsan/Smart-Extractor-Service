@@ -33,6 +33,11 @@ def _strip_code_fences(text: str) -> str:
 async def extract_lead(text: str) -> dict:
     cfg = _load_prompt_config()
     template = _load_prompt_template(cfg["file"])
+    # Note: this is only the *configured* default model. Since the actual
+    # call below goes through chat_completion_with_fallback(), a rate-limited
+    # request may really be served by a different model in FREE_MODEL_FALLBACKS.
+    # calc_cost() further down still prices against this variable, not
+    # whichever model actually responded.
     model = settings.extract_model
 
     messages = [{"role": "user", "content": template.format(text=text)}]
