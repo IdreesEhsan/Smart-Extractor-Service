@@ -7,7 +7,7 @@ swap CHAT_MODEL/EXTRACT_MODEL in .env and nothing here changes.
 import json
 import httpx
 from typing import AsyncGenerator
-from app.config import settings, get_pricing
+from app.config import settings, get_pricing, FREE_MODEL_FALLBACKS
 
 def _headers() -> dict:
     return {
