@@ -47,7 +47,7 @@ async def chat(req: ChatRequest):
              async for chunk in chat_completion_stream(messages, settings.chat_model, req.temperature):
                 full_text += chunk
                 print(f"CHUNK: {repr(chunk)}", flush=True)
-                yield chunk
+                yield chunk.encode("utf-8")
         # Streaming doesn't always return exact token usage, so we estimate
         # (roughly 4 chars/token) for logging purposes only.
         usage = {
@@ -59,7 +59,14 @@ async def chat(req: ChatRequest):
                      calc_cost(settings.chat_model, usage), t.elapsed_ms,
                      extra={"role": req.role})
 
-    return StreamingResponse(event_stream(), media_type="text/plain")
+    return StreamingResponse(
+    event_stream(),
+    media_type="text/plain; charset=utf-8",
+    headers={
+        "Cache-Control": "no-cache",
+        "Connection": "keep-alive",
+        "X-Accel-Buffering": "no",
+    },)
 
 
 @app.post("/extract", response_model=ExtractResponse)
