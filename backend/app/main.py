@@ -61,7 +61,7 @@ async def chat(req: ChatRequest):
 
     return StreamingResponse(
     event_stream(),
-    media_type="text/plain; charset=utf-8",
+    media_type="text/event-stream; charset=utf-8",
     headers={
         "Cache-Control": "no-cache",
         "Connection": "keep-alive",
