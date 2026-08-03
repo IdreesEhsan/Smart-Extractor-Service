@@ -11,7 +11,7 @@ import yaml
 from pydantic import ValidationError
 
 from app.config import settings
-from app.llm_client import chat_completion, calc_cost
+from app.llm_client import chat_completion_with_fallback, calc_cost
 from app.schemas import LeadSchema
 
 PROMPTS_DIR = Path(__file__).parent / "prompts" / "extraction"
@@ -43,7 +43,7 @@ async def extract_lead(text: str) -> dict:
 
     # +1 because attempt 0 is the first try, not a retry
     for attempt in range(settings.max_extract_retries + 1):
-        result = await chat_completion(messages, model, temperature=0.0)
+        result = await chat_completion_with_fallback(messages, temperature=0.0)
         for k in total_usage:
             total_usage[k] += result["usage"].get(k, 0)
 
